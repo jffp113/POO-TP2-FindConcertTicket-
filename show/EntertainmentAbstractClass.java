@@ -5,7 +5,11 @@ import java.util.List;
 
 import exeptions.*;
 
-public abstract class EntertainmentClass implements Entertainment {
+/**
+ * This is the Abstract for the Entertainments so it allows to unify equal
+ * methods and variables
+ */
+public abstract class EntertainmentAbstractClass implements Entertainment {
 	//Constants
 	
 	//Variabels
@@ -21,7 +25,7 @@ public abstract class EntertainmentClass implements Entertainment {
 	 * @param description show description
 	 * @param numberTickets show number of tickets
 	 */
-	public EntertainmentClass(String entertainemntName, String description, int numberTickets) {
+	public EntertainmentAbstractClass(String entertainemntName, String description, int numberTickets) {
 		this.entertainmentName = entertainemntName;
 		this.description = description;
 		this.numberTickets = numberTickets;
@@ -60,7 +64,7 @@ public abstract class EntertainmentClass implements Entertainment {
 		
 		if (obj == null) return false;
 		
-		if (!(obj instanceof EntertainmentClass)) return false;
+		if (!(obj instanceof EntertainmentAbstractClass)) return false;
 			
 		Entertainment other = (Entertainment) obj; 
 		

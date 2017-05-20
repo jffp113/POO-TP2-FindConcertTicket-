@@ -11,7 +11,7 @@ import java.util.List;
  * @author 49771
  * @author 50654
  */
-public class ConcertClass extends EntertainmentClass implements Concert {
+public class ConcertClass extends EntertainmentAbstractClass implements Concert {
 	//Constants
 	
 	//Variables

@@ -4,6 +4,11 @@ import java.util.Iterator;
 
 import artists_band.Performer;
 
+/**
+ * This is the interface for the day of a festival
+ * @author 49771
+ * @author 50654
+ */
 public interface Day {
 	/**
 	 * This method returns the Iterator for the days

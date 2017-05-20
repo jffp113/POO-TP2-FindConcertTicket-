@@ -7,6 +7,11 @@ import java.util.List;
 
 import artists_band.Performer;
 
+/**
+ * This is the Class of a day for the festival
+ * @author 49771
+ * @author 50654
+ */
 public class DayClass implements Day {
 	//Constants
 	

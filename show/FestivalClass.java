@@ -7,7 +7,7 @@ import java.util.List;
 import artists_band.*;
 import exeptions.NoTicketsAvailableExeption;
 
-public class FestivalClass extends EntertainmentClass implements Festival{
+public class FestivalClass extends EntertainmentAbstractClass implements Festival{
 	//Constants
 	
 	//Variables

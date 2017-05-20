@@ -5,6 +5,11 @@ import java.util.List;
 
 import exeptions.*;
 
+/**
+ * This is the Interface of a Entertainment
+ * @author 49771
+ * @author 50654
+ */
 public interface Entertainment {
 	/**
 	 * This methods gets the show name
