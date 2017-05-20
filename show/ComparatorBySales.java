@@ -12,7 +12,8 @@ public class ComparatorBySales implements Comparator<Entertainment> {
 		int ticketsO1 = o1.getSoldTickets();
 		int ticketsO2 = o2.getSoldTickets();
 		String nameO1 = o1.getName();
-		String nameO2 = o2.getName();//test
+		String nameO2 = o2.getName();
+		
 		
 		if(ticketsO1 > ticketsO2)
 			return -1;
