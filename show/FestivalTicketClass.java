@@ -14,9 +14,9 @@ public class FestivalTicketClass extends ticketClass implements FestivalTicket {
 	//Variables
 	private List<LocalDate> date;
 	
-	//Cnstructor
+	//Constructor
 	/**
-	 * This is the construcotr of the festival ticket
+	 * This is the constructor of the festival ticket
 	 * @param entretain show name
 	 * @param price show price
 	 * @param days days of the show

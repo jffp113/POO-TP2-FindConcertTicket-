@@ -10,7 +10,13 @@ import show.Entertainment;
 import show.FestivalClass;
 import users.User;
 
-public class PerformerClass implements Performer{
+/**
+ * This is the PerformerAbstractClass it allows to unify common parts between
+ * All Performers based classes
+ * @author 49771
+ * @author 50654
+ */
+public abstract class PerformerAbstractClass implements Performer{
 	
 	//Constants
 	
@@ -21,7 +27,7 @@ public class PerformerClass implements Performer{
 	private List<Entertainment> agenda;
 	
 	//Constructor
-	public PerformerClass(String name, String[] discography) {
+	public PerformerAbstractClass(String name, String[] discography) {
 		this.name = name;
 		this.discography = discography;
 		agenda = new ArrayList<Entertainment>();
@@ -56,9 +62,9 @@ public class PerformerClass implements Performer{
 		
 		if (obj == null) return false;
 		
-		if (!(obj instanceof PerformerClass)) return false;
+		if (!(obj instanceof PerformerAbstractClass)) return false;
 			
-		PerformerClass other = (PerformerClass) obj; 
+		PerformerAbstractClass other = (PerformerAbstractClass) obj; 
 		
 		if (name == null) {
 			if (other.getName() != null) return false;

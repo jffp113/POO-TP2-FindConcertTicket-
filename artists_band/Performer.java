@@ -2,6 +2,11 @@ package artists_band;
 
 import show.Entertainment;
 
+/**
+ * This is the Interface of the PerformerClass
+ * @author 49771
+ * @author 50654
+ */
 public interface Performer {
 	/**
 	 * This method retrieves the artist Name 

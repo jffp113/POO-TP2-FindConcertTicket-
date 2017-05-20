@@ -10,6 +10,13 @@ import iterators.ShowTypeIterator;
 import show.*;
 import users.*;
 
+/**
+ * This is the TOPCLASS, so all methods that are need to the user interact with
+ * the program are all situated here
+ * The ConcertManager all to Manage a DataBase(in java), of concert/Manager companies
+ * @author 49771
+ * @author 50654
+ */
 public class ConcertManagerClass implements ConcertManager{
 	//Constants
 	

@@ -19,6 +19,14 @@ import show.FestivalTicket;
 import show.Ticket;
 import users.User;
 
+
+/**
+ * This is the Main class
+ * All Interaction with the Users will happen here
+ * @author 49771
+ * @author 50654
+ *
+ */
 public class Main {
 	
 	//Menu constants

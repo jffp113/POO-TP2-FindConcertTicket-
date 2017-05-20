@@ -4,12 +4,17 @@ import java.util.List;
 
 import show.*;
 
+/**
+ * This is a Iterator that allows to iterate Entertainments by Type
+  * @author 49771
+ *	@author 50654
+ */
 public class ShowTypeIterator implements Iterator<Entertainment> {
 	//Constants
 	public static final String CONCERT = "CONCERT";
 	public static final String FESTIVAL = "FESTIVAL";
 	
-	//Variabels
+	//Variables
 	private List<Entertainment> shows;
 	private int numberShows;
 	private String type;

@@ -6,6 +6,13 @@ import show.Entertainment;
 import show.Ticket;
 import users.User;
 
+/**
+ * This is the Interface TOPCLASS, so all methods that are need to the user interact with
+ * the program are all situated here
+ * The ConcertManager all to Manage a DataBase(in java), of concert/Manager companies
+ * @author 49771
+ * @author 50654
+ */
 public interface ConcertManager {
 	/**
 	 * This method allows the creation of a new Administrator
