@@ -6,6 +6,11 @@ import exeptions.NoTicketsAvailableExeption;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * This class allows to create concerts
+ * @author 49771
+ * @author 50654
+ */
 public class ConcertClass extends EntertainmentClass implements Concert {
 	//Constants
 	

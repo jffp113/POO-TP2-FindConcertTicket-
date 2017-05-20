@@ -3,12 +3,17 @@ package iterators;
 import java.util.List;
 import show.*;
 
+/**
+ * This is Iterator allows to iterate Tickets by Type
+ * @author 49771
+ * @author 50654
+ */
 public class TicketTypeIterator implements Iterator<Ticket> {
-	//Constants
+		//Constants
 		public static final String CONCERT = "CONCERT";
 		public static final String FESTIVAL = "FESTIVAL";
 		
-		//Variabels
+		//Variables
 		private List<Ticket> tickets;
 		private int numberTickets;
 		private String type;

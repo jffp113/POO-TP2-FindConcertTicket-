@@ -3,6 +3,14 @@ package show;
 import java.time.LocalDate;
 import java.util.Comparator;
 
+/**
+ * This comparable allows to sort Entertainment by the number of sold Tickets
+ * If they have the some quantity of sort tickets it will try sort by dates,
+ * if the some happens it will sort by names(It is impossible two Entertainments having the some name 
+ * on the some date because it will be a clone)
+ * @author 49771
+ * @author 50654
+ */
 public class ComparatorBySales implements Comparator<Entertainment> {
 
 	@Override
