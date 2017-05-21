@@ -1,5 +1,10 @@
 package users;
 
+/**
+ * This class allows to create a admin user
+ * @author 49771
+ * @author 50654
+ */
 public class AdminClass extends UserClass {
 
 	/**
