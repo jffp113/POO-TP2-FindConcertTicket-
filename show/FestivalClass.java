@@ -7,6 +7,11 @@ import java.util.List;
 import artists_band.*;
 import exeptions.NoTicketsAvailableExeption;
 
+/**
+ * This Class allows to have a Festival
+ * @author 49771
+ * @author 50654
+ */
 public class FestivalClass extends EntertainmentAbstractClass implements Festival{
 	//Constants
 	

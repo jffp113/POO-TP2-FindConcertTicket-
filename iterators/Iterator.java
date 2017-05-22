@@ -4,7 +4,7 @@ package iterators;
  * This is the interface of a GenericIterator
   *@author 49771
  * @author 50654
- * @param <E>
+ * @param <E> Generic type to be Iterated
  */
 public interface Iterator<E> {
 	

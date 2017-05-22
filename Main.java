@@ -363,8 +363,8 @@ public class Main {
 
 	/**
 	 * This method allows clients to list their tickets
-	 * @param in
-	 * @param mg
+	 * @param in Scanner
+	 * @param mg ConcertManager
 	 */
 	public static void listTickets(Scanner in, ConcertManager mg){
 		iterators.Iterator<Ticket> ticketit = null;
@@ -531,8 +531,8 @@ public class Main {
 	
 	/**
 	 * This method allows the show listing by type 
-	 * @param in
-	 * @param mg
+	 * @param in Scanner
+	 * @param mg ConcertManager
 	 */
 	public static void listShowbyType(Scanner in, ConcertManager mg) {
 		String type = in.nextLine().toUpperCase();

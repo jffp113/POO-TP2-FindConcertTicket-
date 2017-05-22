@@ -40,7 +40,7 @@ public interface Entertainment {
 	 * @param numberTickets number of tickets to be bought
 	 * @param dates day to buy
 	 * @return a Ticket
-	 * @throws NoTicketsAvailableExeption
+	 * @throws NoTicketsAvailableExeption Exeption when there is no tickets to sell
 	 */
 	Ticket buytickets(int numberTickets, List<String> dates) throws NoTicketsAvailableExeption;
 	

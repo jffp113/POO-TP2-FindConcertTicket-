@@ -6,6 +6,11 @@ import java.util.List;
 import iterators.TicketTypeIterator;
 import show.Ticket;
 
+/**
+ * This is the Class of a Client (type of user)
+ * @author 49771
+ * @author 50654
+ */
 public class ClientClass extends UserClass implements Client{
 
 	//Variables

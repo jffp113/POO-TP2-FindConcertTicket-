@@ -4,6 +4,12 @@ import java.util.Iterator;
 
 import artists_band.Performer;
 
+/**
+ * This Interface allows to have a Festival
+ * @author 49771
+ * @author 50654
+ *
+ */
 public interface Festival extends Entertainment {
 	/**
 	 * This method allows to add a day to the festival

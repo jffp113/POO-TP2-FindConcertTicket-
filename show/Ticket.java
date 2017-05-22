@@ -1,5 +1,10 @@
 package show;
 
+/**
+ * This is the Interface for a generic type of ticket
+ * @author 49771
+ * @author 50654
+ */
 public interface Ticket {
 	/**
 	 * This method gets the price of the show

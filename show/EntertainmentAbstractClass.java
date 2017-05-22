@@ -8,6 +8,8 @@ import exeptions.*;
 /**
  * This is the Abstract for the Entertainments so it allows to unify equal
  * methods and variables
+ * @author 49771
+ * @author 50654
  */
 public abstract class EntertainmentAbstractClass implements Entertainment {
 	//Constants

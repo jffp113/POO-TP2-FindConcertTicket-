@@ -3,6 +3,11 @@ package users;
 
 import show.Ticket;
 
+/**
+ * This is the Interface for Client Classes
+ * @author 49771
+ * @author 50654
+ */
 public interface Client extends User {
 	
 	/**

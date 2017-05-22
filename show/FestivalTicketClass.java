@@ -5,7 +5,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-
+/**
+ * This is the Class for a festivalTicket
+ * @author 49771
+ * @author 50654
+ */
 public class FestivalTicketClass extends ticketClass implements FestivalTicket {
 
 	//Constants
@@ -29,7 +33,7 @@ public class FestivalTicketClass extends ticketClass implements FestivalTicket {
 
 	/**
 	 * add a day to a festival ticket
-	 * @param days
+	 * @param days Days as String
 	 */
 	private void addDay(List<String> days) {
 		Iterator<String> it = days.iterator();

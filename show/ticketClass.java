@@ -1,5 +1,10 @@
 package show;
 
+/**
+ * This is a Ticket Class
+ * @author 49771
+ * @author 50654
+ */
 public class ticketClass implements Ticket {
 	//Constants
 	

@@ -1,5 +1,10 @@
 package users;
 
+/**
+ * This is the Class of a generic User
+ * @author 49771
+ * @author 50654
+ */
 public class UserClass implements User {
 	//Constants
 	

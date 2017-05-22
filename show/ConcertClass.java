@@ -28,7 +28,7 @@ public class ConcertClass extends EntertainmentAbstractClass implements Concert 
 	 * @param numberTickets Number of tickets
 	 * @param price ticket price
 	 * @param date begin date
-	 * @param artist
+	 * @param artist an artist of a concerts
 	 */
 	public ConcertClass(String entertainemntName, String description, int numberTickets, int price, String date, Performer artist) {
 		super(entertainemntName, description, numberTickets);
@@ -59,8 +59,8 @@ public class ConcertClass extends EntertainmentAbstractClass implements Concert 
 
 	/**
 	 * This method allows the creation of a ticket
-	 * @param buy
-	 * @return
+	 * @param buy number of tickets to buy
+	 * @return if can sell return true other wise return false
 	 */
 	private boolean canSell(int buy) {
 		return ((super.getInicialTickets() - (super.getSoldTickets() + buy)) >= 0);

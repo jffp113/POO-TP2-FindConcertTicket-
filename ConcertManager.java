@@ -18,8 +18,8 @@ public interface ConcertManager {
 	 * This method allows the creation of a new Administrator
 	 * @param name Name of the administrator account
 	 * @return Administrator password
-	 * @throws UserLoggedInExeption
-	 * @throws UserAlreadyExistExeption
+	 * @throws UserLoggedInExeption User logged In exception
+	 * @throws UserAlreadyExistExeption User already exist exceptions
 	 */
 	String newAdmin(String name) throws UserLoggedInExeption, UserAlreadyExistExeption;
 	
@@ -27,8 +27,8 @@ public interface ConcertManager {
 	 * This method allows the creation of a new client
 	 * @param name Name of the client account
 	 * @return Client password
-	 * @throws UserLoggedInExeption
-	 * @throws UserAlreadyExistExeption
+	 * @throws UserLoggedInExeption a user is logged in exception
+	 * @throws UserAlreadyExistExeption User already exist exception
 	 */
 	String newClient(String name) throws UserLoggedInExeption, UserAlreadyExistExeption;
 	
@@ -36,17 +36,17 @@ public interface ConcertManager {
 	 * This method allows the account logging
 	 * @param name Name of the account to be logged
 	 * @param password Account password
-	 * @throws UserDoesNotExistExeption
-	 * @throws UserAlreadyLoggedInExeption
-	 * @throws UserPasswordMismatchExeption
-	 * @throws UserLoggedInExeption
+	 * @throws UserDoesNotExistExeption User does not exist Exist Exception
+	 * @throws UserAlreadyLoggedInExeption User already logged in exception
+	 * @throws UserPasswordMismatchExeption Wrong password exception
+	 * @throws UserLoggedInExeption a User already logged in
 	 */
 	void login(String name, String password) throws UserDoesNotExistExeption, UserAlreadyLoggedInExeption, UserPasswordMismatchExeption, UserLoggedInExeption;
 	
 	/**
 	 * This method allows the logout of an active logged account
 	 * @return the user that was logged in
-	 * @throws NoUserLoggedInExeption
+	 * @throws NoUserLoggedInExeption No user logged in exeption
 	 */
 	User logout() throws NoUserLoggedInExeption;
 	
@@ -68,8 +68,8 @@ public interface ConcertManager {
 	 * @param name Name of the band
 	 * @param discography Band discography
 	 * @param elements elements that are part of the band
-	 * @throws PerformerAlreadyExists 
-	 * @throws UserWithoutPrivilegesExeption
+	 * @throws PerformerAlreadyExists Performer already exist Exeption
+	 * @throws UserWithoutPrivilegesExeption User without privileges exception
 	 */
 	void addBand(String name, String[] discography, String[] elements) throws PerformerAlreadyExists, UserWithoutPrivilegesExeption;
 	
@@ -77,8 +77,8 @@ public interface ConcertManager {
 	 * This method allows the creation of a new artist (solo)
 	 * @param name The name of the artist
 	 * @param discography Artist discography
-	 * @throws PerformerAlreadyExists 
-	 * @throws UserWithoutPrivilegesExeption
+	 * @throws PerformerAlreadyExists Performer already exist Exeption
+	 * @throws UserWithoutPrivilegesExeption User without rights Exception
 	 */
 	void addArtist(String name, String[] discography) throws PerformerAlreadyExists, UserWithoutPrivilegesExeption;
 	
@@ -91,9 +91,9 @@ public interface ConcertManager {
 	 * @param endDate the end date of the festival
 	 * @param prices price to buy a day in the festival
 	 * @param elem artist that act
-	 * @throws UserWithoutPrivilegesExeption
-	 * @throws ShowAlreadyExistsExeption
-	 * @throws PerformerDoesNotExistExeption
+	 * @throws UserWithoutPrivilegesExeption User without rights Exception
+	 * @throws ShowAlreadyExistsExeption Show already Exist Exception
+	 * @throws PerformerDoesNotExistExeption Performer does not exist Exception
 	 */
 	void addFestival(String entertainemntName, String description, int numberTickets, String beginDate, String endDate,int[] prices, List<String> elem) throws UserWithoutPrivilegesExeption, ShowAlreadyExistsExeption, PerformerDoesNotExistExeption;
 	
@@ -123,7 +123,7 @@ public interface ConcertManager {
 	 * @param name Name of the show
 	 * @param date begin date of the show
 	 * @return Entertainment (show)
-	 * @throws NoEntertainmentExeption
+	 * @throws NoEntertainmentExeption No entertainment Exception
 	 */
 	Entertainment getShow(String name, String date) throws NoEntertainmentExeption;
 	
@@ -133,9 +133,9 @@ public interface ConcertManager {
 	 * @param date day of the show to be bought
 	 * @param number number of tickets
 	 * @return price of the ticket
-	 * @throws NoEntertainmentExeption
-	 * @throws NoTicketsAvailableExeption
-	 * @throws UserWithoutPrivilegesExeption
+	 * @throws NoEntertainmentExeption no entertainment exception
+	 * @throws NoTicketsAvailableExeption no tickets available for sale exception
+	 * @throws UserWithoutPrivilegesExeption user without rights exception
 	 */
 	int buyConcertTicket(String name, String date, int number) throws NoEntertainmentExeption, NoTicketsAvailableExeption, UserWithoutPrivilegesExeption;
 	
@@ -145,9 +145,9 @@ public interface ConcertManager {
 	 * @param date begin date of the festival
 	 * @param buydate days to buy the ticket
 	 * @return price of the ticket
-	 * @throws NoEntertainmentExeption
-	 * @throws UserWithoutPrivilegesExeption
-	 * @throws NoTicketsAvailableExeption
+	 * @throws NoEntertainmentExeption No entertainment exeption
+	 * @throws UserWithoutPrivilegesExeption User without privileges Exception
+	 * @throws NoTicketsAvailableExeption No tickets available for sale exception
 	 */
 	int buyFestivalTicket(String name, String date ,List<String> buydate) throws NoEntertainmentExeption, UserWithoutPrivilegesExeption, NoTicketsAvailableExeption;
 	
@@ -155,7 +155,7 @@ public interface ConcertManager {
 	 * This method allows to list Client tickets
 	 * @param type type of the ticket
 	 * @return iterator to the tickets
-	 * @throws UserWithoutPrivilegesExeption
+	 * @throws UserWithoutPrivilegesExeption User without privileges Exception
 	 */
 	iterators.Iterator<Ticket> listTikets(String type) throws UserWithoutPrivilegesExeption;
 	
@@ -167,9 +167,9 @@ public interface ConcertManager {
 	 * @param price price per ticket
 	 * @param date begin date of the concert
 	 * @param artist artist that will performer (as String)
-	 * @throws UserWithoutPrivilegesExeption
-	 * @throws ShowAlreadyExistsExeption
-	 * @throws PerformerDoesNotExistExeption
+	 * @throws UserWithoutPrivilegesExeption User does not have Privileges Exeption
+	 * @throws ShowAlreadyExistsExeption Show Exist Exeption
+	 * @throws PerformerDoesNotExistExeption Performer does dot exist Exeption
 	 */
 	public void addConcert(String entertainemntName, String description, int numberTickets, int price, String date, String artist) throws UserWithoutPrivilegesExeption, ShowAlreadyExistsExeption, PerformerDoesNotExistExeption;
 }
