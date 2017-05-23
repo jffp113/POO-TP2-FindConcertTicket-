@@ -9,7 +9,7 @@ import show.*;
   * @author 49771
  *	@author 50654
  */
-public class ShowTypeIterator implements Iterator<Entertainment> {
+public class ShowTypeIteratorList implements Iterator<Entertainment> {
 	//Constants
 	public static final String CONCERT = "CONCERT";
 	public static final String FESTIVAL = "FESTIVAL";
@@ -20,7 +20,7 @@ public class ShowTypeIterator implements Iterator<Entertainment> {
 	private String type;
 	private int current;
 	
-	public ShowTypeIterator(List<Entertainment> shows, int numberShows, String type) {
+	public ShowTypeIteratorList(List<Entertainment> shows, int numberShows, String type) {
 		this.shows = shows;
 		this.numberShows = numberShows;
 		this.type = type.toUpperCase();
