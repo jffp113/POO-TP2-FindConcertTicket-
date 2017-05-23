@@ -2,6 +2,11 @@ package iterators;
 
 import show.*;
 
+/**
+ * This is the Class of a Filter to be used with the GenericFilterIterator
+ * @author 49771
+ * @author 50654
+ */
 public class TicketFilter implements Filter<Ticket> {
 
 	
@@ -10,9 +15,13 @@ public class TicketFilter implements Filter<Ticket> {
 	public static final String FESTIVAL = "FESTIVAL";
 	
 	
-	//Variabels
+	//Variables
 	private String type;
 	
+	/**
+	 * This is the Constructor of the filter
+	 * @param type type to filter
+	 */
 	public TicketFilter(String type) {
 		this.type = type;
 	}

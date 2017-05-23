@@ -1,8 +1,8 @@
 package artists_band;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import iterators.EntertainmentFilter;
 import iterators.FilterIterator;
@@ -24,13 +24,13 @@ public abstract class PerformerAbstractClass implements Performer{
 	private String name;
 	@SuppressWarnings("unused")
 	private String[] discography;
-	private List<Entertainment> agenda;
+	private Set<Entertainment> agenda;
 	
 	//Constructor
 	public PerformerAbstractClass(String name, String[] discography) {
 		this.name = name;
 		this.discography = discography;
-		agenda = new ArrayList<Entertainment>();
+		agenda = new TreeSet<Entertainment>(new ComparatorByDate());
 	}
 	
 	public String getName() {
@@ -38,10 +38,7 @@ public abstract class PerformerAbstractClass implements Performer{
 	}
 	
 	public void addEvent(Entertainment newEvent){ 
-		if(!agenda.contains(newEvent))
 			agenda.add(newEvent);
-		
-		agenda.sort(new ComparatorByDate()); //When a new show is added sort all
 	}
 	
 	public Entertainment getShow(String name, String date){
@@ -74,7 +71,6 @@ public abstract class PerformerAbstractClass implements Performer{
 	}
 
 	public iterators.Iterator<Entertainment> getShowIterator(String type) {
-		
 		return new FilterIterator<Entertainment>(agenda.iterator(),new EntertainmentFilter(type));
 	}
 }
