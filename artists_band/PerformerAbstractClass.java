@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import iterators.ShowTypeIteratorList;
+import iterators.EntertainmentFilter;
+import iterators.FilterIterator;
 import show.ComparatorByDate;
 import show.Entertainment;
-import show.FestivalClass;
-import users.User;
 
 /**
  * This is the PerformerAbstractClass it allows to unify common parts between
@@ -23,6 +22,7 @@ public abstract class PerformerAbstractClass implements Performer{
 	
 	//Variables
 	private String name;
+	@SuppressWarnings("unused")
 	private String[] discography;
 	private List<Entertainment> agenda;
 	
@@ -75,6 +75,6 @@ public abstract class PerformerAbstractClass implements Performer{
 
 	public iterators.Iterator<Entertainment> getShowIterator(String type) {
 		
-		return new ShowTypeIteratorList(agenda,agenda.size(), type);
+		return new FilterIterator<Entertainment>(agenda.iterator(),new EntertainmentFilter(type));
 	}
 }

@@ -7,8 +7,7 @@ import java.util.Scanner;
 
 import artists_band.Performer;
 import exeptions.*;
-import iterators.ShowTypeIteratorList;
-import iterators.TicketTypeIterator;
+import iterators.*;
 import show.Concert;
 import show.ConcertTicket;
 import show.Day;
@@ -373,7 +372,7 @@ public class Main {
 		Ticket ticket = null;
 		Iterator<LocalDate> localIt = null;
 		try{
-			ticketit = mg.listTikets(TicketTypeIterator.CONCERT);
+			ticketit = mg.listTikets(EntertainmentFilter.CONCERT);
 			System.out.println(MY_TICKETS);
 			while(ticketit.hasNext()) {
 				ticket = ticketit.next();
@@ -383,7 +382,7 @@ public class Main {
 					System.out.println(concT.getQuantitaty());
 					System.out.println(concT.getPrice());;
 				}
-				ticketit = mg.listTikets(TicketTypeIterator.FESTIVAL);
+				ticketit = mg.listTikets(EntertainmentFilter.FESTIVAL);
 				while(ticketit.hasNext()){
 					ticket = ticketit.next();
 					festT = (FestivalTicket)ticket;
@@ -406,7 +405,7 @@ public class Main {
 	 */
 	public static void listPerformerShows(Scanner in, ConcertManager mg){
 		String name = in.nextLine();
-		iterators.Iterator<Entertainment> showit = mg.shows(name, iterators.ShowTypeIteratorList.CONCERT);
+		iterators.Iterator<Entertainment> showit = mg.shows(name, iterators.EntertainmentFilter.CONCERT);
 		Concert conc = null;
 		Festival fest = null;
 		
@@ -420,7 +419,7 @@ public class Main {
 		
 		System.out.printf(ARTIST_FESTIVAL, name);
 		
-		showit = mg.shows(name, iterators.ShowTypeIteratorList.FESTIVAL);
+		showit = mg.shows(name, iterators.EntertainmentFilter.FESTIVAL);
 		if(showit != null){
 			while(showit.hasNext()){
 				fest = (Festival) showit.next();
@@ -540,13 +539,13 @@ public class Main {
 		
 		it = mg.iteratorByEntertainmentType(type);
 		
-		if(type.equals(ShowTypeIteratorList.CONCERT)){
+		if(type.equals(EntertainmentFilter.CONCERT)){
 			System.out.println(CONCERT_TITLE);
 			while(it.hasNext()){
 				ConcertStatus((Concert)it.next());
 			}
 		}
-		else if (type.equals(ShowTypeIteratorList.FESTIVAL)){
+		else if (type.equals(EntertainmentFilter.FESTIVAL)){
 			System.out.println(FESTIVAL_TITLE);
 			while(it.hasNext()){
 				FestivalStatus((Festival)it.next());

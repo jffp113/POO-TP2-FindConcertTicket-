@@ -3,7 +3,7 @@ package users;
 import java.util.LinkedList;
 import java.util.List;
 
-import iterators.TicketTypeIterator;
+import iterators.*;
 import show.Ticket;
 
 /**
@@ -33,7 +33,7 @@ public class ClientClass extends UserClass implements Client{
 	}
 	
 	public iterators.Iterator<Ticket> listTickets(String type) {
-		return new TicketTypeIterator(tickets,tickets.size(),type);
+		return new FilterIterator<Ticket>(tickets.iterator(),new TicketFilter(type));
 	}
 	
 }

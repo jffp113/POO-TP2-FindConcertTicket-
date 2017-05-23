@@ -3,11 +3,10 @@ package exeptions;
 import java.util.Iterator;
 import java.util.List;
 
-import artists_band.Performer;
-
 @SuppressWarnings("serial")
 public class PerformerDoesNotExistExeption extends Exception {
-	//Variabels
+	
+	//Variables
 	List<String> performers;
 	
 	public PerformerDoesNotExistExeption(List<String> performers){

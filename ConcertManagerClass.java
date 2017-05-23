@@ -6,7 +6,8 @@ import java.util.Map;
 
 import artists_band.*;
 import exeptions.*;
-import iterators.ShowTypeIteratorList;
+import iterators.EntertainmentFilter;
+import iterators.FilterIterator;
 import show.*;
 import users.*;
 
@@ -324,7 +325,7 @@ public class ConcertManagerClass implements ConcertManager{
 		List<Entertainment> enter = shows.subList(0, shows.size());
 		enter.sort(new ComparatorByDate());
 		
-		return new ShowTypeIteratorList(enter, enter.size(), type);
+		return new FilterIterator<Entertainment>(enter.iterator(), new EntertainmentFilter(type));
 	}
 }
 
