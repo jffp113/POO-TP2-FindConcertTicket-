@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import artists_band.Performer;
 import exeptions.*;
-import iterators.ShowTypeIterator;
+import iterators.ShowTypeIteratorList;
 import iterators.TicketTypeIterator;
 import show.Concert;
 import show.ConcertTicket;
@@ -284,7 +284,7 @@ public class Main {
 			System.out.println(SHOW_ALREADY_EX);
 		}
 		catch(PerformerDoesNotExistExeption e) {
-			bufferIt = mg.inexistentArtistBueffer();
+			bufferIt = e.iterarater();
 			System.out.println(NO_ARTISTS);
 			while(bufferIt.hasNext()){
 				System.out.println(bufferIt.next());
@@ -406,7 +406,7 @@ public class Main {
 	 */
 	public static void listPerformerShows(Scanner in, ConcertManager mg){
 		String name = in.nextLine();
-		iterators.Iterator<Entertainment> showit = mg.shows(name, iterators.ShowTypeIterator.CONCERT);
+		iterators.Iterator<Entertainment> showit = mg.shows(name, iterators.ShowTypeIteratorList.CONCERT);
 		Concert conc = null;
 		Festival fest = null;
 		
@@ -420,7 +420,7 @@ public class Main {
 		
 		System.out.printf(ARTIST_FESTIVAL, name);
 		
-		showit = mg.shows(name, iterators.ShowTypeIterator.FESTIVAL);
+		showit = mg.shows(name, iterators.ShowTypeIteratorList.FESTIVAL);
 		if(showit != null){
 			while(showit.hasNext()){
 				fest = (Festival) showit.next();
@@ -540,13 +540,13 @@ public class Main {
 		
 		it = mg.iteratorByEntertainmentType(type);
 		
-		if(type.equals(ShowTypeIterator.CONCERT)){
+		if(type.equals(ShowTypeIteratorList.CONCERT)){
 			System.out.println(CONCERT_TITLE);
 			while(it.hasNext()){
 				ConcertStatus((Concert)it.next());
 			}
 		}
-		else if (type.equals(ShowTypeIterator.FESTIVAL)){
+		else if (type.equals(ShowTypeIteratorList.FESTIVAL)){
 			System.out.println(FESTIVAL_TITLE);
 			while(it.hasNext()){
 				FestivalStatus((Festival)it.next());

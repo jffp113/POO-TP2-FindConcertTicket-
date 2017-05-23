@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import iterators.ShowTypeIterator;
+import iterators.ShowTypeIteratorList;
 import show.ComparatorByDate;
 import show.Entertainment;
 import show.FestivalClass;
@@ -75,6 +75,6 @@ public abstract class PerformerAbstractClass implements Performer{
 
 	public iterators.Iterator<Entertainment> getShowIterator(String type) {
 		
-		return new ShowTypeIterator(agenda,agenda.size(), type);
+		return new ShowTypeIteratorList(agenda,agenda.size(), type);
 	}
 }

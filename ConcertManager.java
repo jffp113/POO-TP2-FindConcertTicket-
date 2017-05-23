@@ -97,11 +97,6 @@ public interface ConcertManager {
 	 */
 	void addFestival(String entertainemntName, String description, int numberTickets, String beginDate, String endDate,int[] prices, List<String> elem) throws UserWithoutPrivilegesExeption, ShowAlreadyExistsExeption, PerformerDoesNotExistExeption;
 	
-	/**
-	 * This method allows to get the buffer of the users that could't be added in the festival
-	 * @return Buffer Iterator for the users that could be added
-	 */
-	Iterator<String> inexistentArtistBueffer();
 	
 	/**
 	 * This method creates a Iterator for all shows

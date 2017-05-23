@@ -6,7 +6,7 @@ import java.util.Map;
 
 import artists_band.*;
 import exeptions.*;
-import iterators.ShowTypeIterator;
+import iterators.ShowTypeIteratorList;
 import show.*;
 import users.*;
 
@@ -27,7 +27,6 @@ public class ConcertManagerClass implements ConcertManager{
 	private List<Entertainment> shows;
 	private int adminCounter;
 	private int clientCounter;
-	private List<String> artistInexistent;
 	
 	//Constructor
 	/**
@@ -162,7 +161,8 @@ public class ConcertManagerClass implements ConcertManager{
 	}
 	
 	public void addConcert(String entertainemntName, String description, int numberTickets, int price, String date, String artist) throws UserWithoutPrivilegesExeption, ShowAlreadyExistsExeption, PerformerDoesNotExistExeption{
-		artistInexistent = new ArrayList<String>(10);
+		List<String> artistInexistent = new ArrayList<String>(10);
+		
 		if(!(loggedUser instanceof AdminClass)){
 			throw new UserWithoutPrivilegesExeption();
 		}
@@ -170,7 +170,7 @@ public class ConcertManagerClass implements ConcertManager{
 			throw new ShowAlreadyExistsExeption();
 		else if(!isTherePerformer(artist)){
 			artistInexistent.add(artist);
-			throw new PerformerDoesNotExistExeption();
+			throw new PerformerDoesNotExistExeption(artistInexistent);
 		}
 		Entertainment show = new ConcertClass(entertainemntName,description,numberTickets,price,date,performers.get(artist));
 		shows.add(show);
@@ -178,6 +178,7 @@ public class ConcertManagerClass implements ConcertManager{
 	}
 	
 	public void addFestival(String entertainemntName, String description, int numberTickets, String beginDate, String endDate,int[] prices, List<String> elem) throws UserWithoutPrivilegesExeption, ShowAlreadyExistsExeption, PerformerDoesNotExistExeption{
+		List<String> artistInexistent = new ArrayList<String>(10);
 		if(!(loggedUser instanceof AdminClass)){
 			throw new UserWithoutPrivilegesExeption();
 		}
@@ -202,7 +203,7 @@ public class ConcertManagerClass implements ConcertManager{
 			}
 		}
 		if(artistExist)
-			throw new PerformerDoesNotExistExeption();
+			throw new PerformerDoesNotExistExeption(artistInexistent);
 		
 		show = new FestivalClass(entertainemntName,description,numberTickets, beginDate,endDate,prices);
 		it = elem.iterator();
@@ -221,9 +222,6 @@ public class ConcertManagerClass implements ConcertManager{
 		addAgenda(show);
 	}
 
-	public Iterator<String> inexistentArtistBueffer() {
-		return artistInexistent.iterator();
-	}
 	/**
 	 * Add a determined festival to a performer agenda
 	 * @param fest Festival to be added
@@ -326,7 +324,7 @@ public class ConcertManagerClass implements ConcertManager{
 		List<Entertainment> enter = shows.subList(0, shows.size());
 		enter.sort(new ComparatorByDate());
 		
-		return new ShowTypeIterator(enter, enter.size(), type);
+		return new ShowTypeIteratorList(enter, enter.size(), type);
 	}
 }
 
