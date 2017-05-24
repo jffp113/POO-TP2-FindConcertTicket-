@@ -36,7 +36,7 @@ public class ConcertManagerClass implements ConcertManager{
 	public ConcertManagerClass() {
 		users = new HashMap<String,User>(50);//Constants
 		performers = new HashMap<String,Performer>(50);
-		shows = new ArrayList<Entertainment>();
+		shows = new ArrayList<Entertainment>(50);
 		loggedUser = null;
 		
 		adminCounter = 0;
@@ -249,7 +249,7 @@ public class ConcertManagerClass implements ConcertManager{
 		return shows.iterator();
 	}
 	
-	public iterators.Iterator<Entertainment> shows(String name, String type){//Throw exeption confirmar se need
+	public iterators.Iterator<Entertainment> shows(String name, String type){
 		Performer per = performers.get(name);
 		if(per == null){
 			return null;

@@ -15,36 +15,10 @@ import org.junit.Test;
 
 public class Tests {
 
-	/* 
-	 * #########################################################################################################
-	 * FORMATO DOS FICHEIROS
-	 *
-	 * O $ e o numero do teste. O valor normal serve para testes do estilo
-	 * "input_1.txt" -> "output_1.txt", "input_4.txt" -> "output_4.txt", etc
-	 * Troquem os strings com o formato correto dos testes que sao fornecidos
-	 * No caso de haver pastas, usem separadores /
-	 * Ex. Se os testes forem T1/in.txt e T1/out.txt, o formato seria, respetivamente,
-	 * "T$/in.txt", "T$/out.txt"
-	 *
-	 * NOTA: Estes valores nao vem configurados para nenhum problema em particular
-	 * e devem ter de ser mudados.
-	 * #########################################################################################################
-	 */
 
 	private static final String FORMATO_INPUT = "input_$.txt";
 	private static final String FORMATO_OUTPUT = "output_$.txt";  
 
-	/* #########################################################################################################
-	 * LISTAGEM DOS TESTES
-	 *
-	 * Os testes sao escritos no formato ja presente, com os numeros que vem nos zips dados
-	 * O formato que vem so tem os testes 1, 2, e 3. Adicionar mais testes e so continuar
-	 * a lista com os valores seguintes. Exemplo, adicionar os testes 4 e 5:
-	 * @Test public void test4() { test(4); }
-	 * @Test public void test5() { test(5); }
-	 * Mudar:                ^          ^
-	 * #########################################################################################################
-	 */
 
 	@Test public void test1() { test("01-in-register_loginout_ok.txt","01-out-register_loginout_ok.txt"); }
 	@Test public void test2() { test("01-in-register_loginout_pre.txt","01-out-register_loginout_pre.txt"); }
@@ -58,13 +32,6 @@ public class Tests {
 	@Test public void test10() { test("05-in-everything_pre.txt","05-out-everything_pre.txt"); }
 	@Test public void EnunciadoTest() { test("in-enunciado.txt","out-enunciado.txt"); }
 	
-	
-	
-	/*
-	 * No caso dos testes terem formatos irregulares (nao serem com numeros corridos)
-	 * temos de dar manualmente os nomes dos testes, tipo assim:
-	 * @Test public void testMalo() { test("malo_input.txt", "malo_output.txt"); }
-	 */
 	
 	/*
 	 * #########################################################################################################

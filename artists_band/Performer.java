@@ -27,11 +27,4 @@ public interface Performer {
 	 */
 	iterators.Iterator<Entertainment> getShowIterator(String type);
 	
-	/**
-	 * This method gets a specific show from the agenda
-	 * @param name Name of the show
-	 * @param date Date of the show to be retrieved
-	 * @return get a Entertainment
-	 */
-	Entertainment getShow(String name, String date);
 }

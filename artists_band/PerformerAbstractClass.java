@@ -1,6 +1,5 @@
 package artists_band;
 
-import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -41,18 +40,6 @@ public abstract class PerformerAbstractClass implements Performer{
 			agenda.add(newEvent);
 	}
 	
-	public Entertainment getShow(String name, String date){
-		Iterator<Entertainment> entIt = agenda.iterator();
-		Entertainment ent = null;
-		
-		while(entIt.hasNext()){
-			ent = entIt.next();
-			if(ent.getBeginDateAsString().equals(date))
-				return ent;
-		}
-		
-		return null;
-	}
 	
 	public boolean equals(Object obj) {
 		if (this == obj) return true; 
