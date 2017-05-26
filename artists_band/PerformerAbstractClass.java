@@ -1,12 +1,12 @@
 package artists_band;
 
+import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import iterators.EntertainmentFilter;
-import iterators.FilterIterator;
 import show.ComparatorByDate;
 import show.Entertainment;
+import show.Festival;
 
 /**
  * This is the PerformerAbstractClass it allows to unify common parts between
@@ -17,19 +17,23 @@ import show.Entertainment;
 public abstract class PerformerAbstractClass implements Performer{
 	
 	//Constants
-	
+	public static final String CONCERT = "CONCERT";
+	public static final String FESTIVAL = "FESTIVAL";
 	
 	//Variables
 	private String name;
 	@SuppressWarnings("unused")
 	private String[] discography;
-	private Set<Entertainment> agenda;
+	private Set<Entertainment> festivalAgenda;
+	private Set<Entertainment> concertAgenda;
 	
 	//Constructor
 	public PerformerAbstractClass(String name, String[] discography) {
 		this.name = name;
 		this.discography = discography;
-		agenda = new TreeSet<Entertainment>(new ComparatorByDate());
+		festivalAgenda = new TreeSet<Entertainment>(new ComparatorByDate());
+		concertAgenda = new TreeSet<Entertainment>(new ComparatorByDate());
+		
 	}
 	
 	public String getName() {
@@ -37,7 +41,10 @@ public abstract class PerformerAbstractClass implements Performer{
 	}
 	
 	public void addEvent(Entertainment newEvent){ 
-			agenda.add(newEvent);
+		if(newEvent instanceof Festival)
+			festivalAgenda.add(newEvent);
+		else
+			concertAgenda.add(newEvent);
 	}
 	
 	
@@ -57,7 +64,10 @@ public abstract class PerformerAbstractClass implements Performer{
 		else return name.equals(other.getName());
 	}
 
-	public iterators.Iterator<Entertainment> getShowIterator(String type) {
-		return new FilterIterator<Entertainment>(agenda.iterator(),new EntertainmentFilter(type));
+	public Iterator<Entertainment> getShowIterator(String type) {
+		if(type.equals(FESTIVAL))
+			return festivalAgenda.iterator();
+		else
+			return concertAgenda.iterator();
 	}
 }

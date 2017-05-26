@@ -1,5 +1,7 @@
 package artists_band;
 
+import java.util.Iterator;
+
 import show.Entertainment;
 
 /**
@@ -25,6 +27,6 @@ public interface Performer {
 	 * @param type type of the show to be iterated from  the agenda
 	 * @return Show iterator
 	 */
-	iterators.Iterator<Entertainment> getShowIterator(String type);
+	Iterator<Entertainment> getShowIterator(String type);
 	
 }

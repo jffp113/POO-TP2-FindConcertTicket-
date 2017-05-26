@@ -33,11 +33,7 @@ public class Tests {
 	@Test public void EnunciadoTest() { test("in-enunciado.txt","out-enunciado.txt"); }
 	
 	
-	/*
-	 * #########################################################################################################
-	 * SE TOCAREM EM ALGUMA COISA ABAIXO DISTO CORREM O RISCO DE EXPLODIR COM TUDO
-	 * #########################################################################################################
-	 */
+
 
 	private static final File BASE = new File("tests");
 

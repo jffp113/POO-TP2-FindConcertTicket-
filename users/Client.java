@@ -1,6 +1,8 @@
 package users;
 
 
+import java.util.Iterator;
+
 import show.Ticket;
 
 /**
@@ -21,6 +23,6 @@ public interface Client extends User {
 	 * @param type type of the ticket
 	 * @return Iterator
 	 */
-	iterators.Iterator<Ticket> listTickets(String type);
+	Iterator<Ticket> listTickets(String type);
 	
 }

@@ -3,11 +3,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import artists_band.*;
 import exeptions.*;
-import iterators.EntertainmentFilter;
-import iterators.FilterIterator;
 import show.*;
 import users.*;
 
@@ -20,14 +20,22 @@ import users.*;
  */
 public class ConcertManagerClass implements ConcertManager{
 	//Constants
-	
+	public static final String CONCERT = "CONCERT";
+	public static final String FESTIVAL = "FESTIVAL";
 	//Variables
+	//User DataStructores
 	private Map<String,User> users;
 	private User loggedUser;
+	//Performers DataStructores
 	private Map<String,Performer> performers;
+	//DataStructores to the Shows
 	private List<Entertainment> shows;
+	private Set<Entertainment> festivals;
+	private Set<Entertainment> concerts;
+	//Instance Variables
 	private int adminCounter;
 	private int clientCounter;
+	
 	
 	//Constructor
 	/**
@@ -38,6 +46,9 @@ public class ConcertManagerClass implements ConcertManager{
 		performers = new HashMap<String,Performer>(50);
 		shows = new ArrayList<Entertainment>(50);
 		loggedUser = null;
+		
+		festivals = new TreeSet<Entertainment>(new ComparatorByDate());
+		concerts = new TreeSet<Entertainment>(new ComparatorByDate());
 		
 		adminCounter = 0;
 		clientCounter = 0;
@@ -175,6 +186,7 @@ public class ConcertManagerClass implements ConcertManager{
 		}
 		Entertainment show = new ConcertClass(entertainemntName,description,numberTickets,price,date,performers.get(artist));
 		shows.add(show);
+		concerts.add(show);
 		performers.get(artist).addEvent(show);
 	}
 	
@@ -219,7 +231,9 @@ public class ConcertManagerClass implements ConcertManager{
 				counter = 0;
 			}
 		}
+		
 		shows.add(show);
+		festivals.add(show);
 		addAgenda(show);
 	}
 
@@ -249,7 +263,7 @@ public class ConcertManagerClass implements ConcertManager{
 		return shows.iterator();
 	}
 	
-	public iterators.Iterator<Entertainment> shows(String name, String type){
+	public Iterator<Entertainment> shows(String name, String type){
 		Performer per = performers.get(name);
 		if(per == null){
 			return null;
@@ -302,7 +316,7 @@ public class ConcertManagerClass implements ConcertManager{
 		return ticket.getPrice();
 	}
 	
-	public iterators.Iterator<Ticket> listTikets(String type) throws UserWithoutPrivilegesExeption {
+	public Iterator<Ticket> listTikets(String type) throws UserWithoutPrivilegesExeption {
 		Client cl;
 		
 		if((loggedUser == null) || !(loggedUser instanceof Client))
@@ -320,12 +334,12 @@ public class ConcertManagerClass implements ConcertManager{
 		return it;
 	}
 	
-	public iterators.Iterator<Entertainment> iteratorByEntertainmentType(String type) {
-		
-		List<Entertainment> enter = shows.subList(0, shows.size());
-		enter.sort(new ComparatorByDate());
-		
-		return new FilterIterator<Entertainment>(enter.iterator(), new EntertainmentFilter(type));
+	public Iterator<Entertainment> iteratorByEntertainmentType(String type) {
+		if(type.equals(CONCERT))
+			return concerts.iterator();
+		else
+			return festivals.iterator();
+
 	}
 }
 

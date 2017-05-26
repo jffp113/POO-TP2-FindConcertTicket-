@@ -1,9 +1,10 @@
 package users;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import iterators.*;
+import show.FestivalTicket;
 import show.Ticket;
 
 /**
@@ -14,7 +15,8 @@ import show.Ticket;
 public class ClientClass extends UserClass implements Client{
 
 	//Variables
-	private List<Ticket> tickets;
+	private List<Ticket> festivalTickets;
+	private List<Ticket> concertTickets;
 	
 	//Constructor
 	/**
@@ -24,16 +26,23 @@ public class ClientClass extends UserClass implements Client{
 	 */
 	public ClientClass(String userName, String password) {
 		super(userName, password);
-		tickets = new LinkedList<Ticket>();
+		festivalTickets = new LinkedList<Ticket>();
+		concertTickets = new LinkedList<Ticket>();
 	}
 
 	@Override
 	public void addTicket(Ticket ticket) {
-		tickets.add(ticket);
+		if(ticket instanceof FestivalTicket)
+			festivalTickets.add(ticket);
+		else
+			concertTickets.add(ticket);
 	}
 	
-	public iterators.Iterator<Ticket> listTickets(String type) {
-		return new FilterIterator<Ticket>(tickets.iterator(),new TicketFilter(type));
+	public Iterator<Ticket> listTickets(String type) {
+		if(type.equals("CONCERT"))
+			return concertTickets.iterator();
+		else
+			return festivalTickets.iterator();
 	}
 	
 }

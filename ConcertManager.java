@@ -61,7 +61,7 @@ public interface ConcertManager {
 	 * @param type Type of the show
 	 * @return Iterator to the requested type of show
 	 */
-	iterators.Iterator<Entertainment> iteratorByEntertainmentType(String type);
+	Iterator<Entertainment> iteratorByEntertainmentType(String type);
 	
 	/**
 	 * This method allows the creation of a new band 
@@ -111,7 +111,7 @@ public interface ConcertManager {
 	 * @param type Type of the show
 	 * @return Iterator to the requested type of show
 	 */
-	iterators.Iterator<Entertainment> shows(String name, String type);
+	Iterator<Entertainment> shows(String name, String type);
 	
 	/**
 	 * This method allows to get a certain show by name
@@ -152,7 +152,7 @@ public interface ConcertManager {
 	 * @return iterator to the tickets
 	 * @throws UserWithoutPrivilegesExeption User without privileges Exception
 	 */
-	iterators.Iterator<Ticket> listTikets(String type) throws UserWithoutPrivilegesExeption;
+	Iterator<Ticket> listTikets(String type) throws UserWithoutPrivilegesExeption;
 	
 	/**
 	 * This method allows the creation of a new concert

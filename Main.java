@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 import artists_band.Performer;
 import exeptions.*;
-import iterators.*;
 import show.Concert;
 import show.ConcertTicket;
 import show.Day;
@@ -366,13 +365,13 @@ public class Main {
 	 * @param mg ConcertManager
 	 */
 	public static void listTickets(Scanner in, ConcertManager mg){
-		iterators.Iterator<Ticket> ticketit = null;
+		Iterator<Ticket> ticketit = null;
 		FestivalTicket festT = null;
 		ConcertTicket concT = null;
 		Ticket ticket = null;
 		Iterator<LocalDate> localIt = null;
 		try{
-			ticketit = mg.listTikets(EntertainmentFilter.CONCERT);
+			ticketit = mg.listTikets(ConcertManagerClass.CONCERT);
 			System.out.println(MY_TICKETS);
 			while(ticketit.hasNext()) {
 				ticket = ticketit.next();
@@ -382,7 +381,7 @@ public class Main {
 					System.out.println(concT.getQuantitaty());
 					System.out.println(concT.getPrice());;
 				}
-				ticketit = mg.listTikets(EntertainmentFilter.FESTIVAL);
+				ticketit = mg.listTikets(ConcertManagerClass.FESTIVAL);
 				while(ticketit.hasNext()){
 					ticket = ticketit.next();
 					festT = (FestivalTicket)ticket;
@@ -405,7 +404,7 @@ public class Main {
 	 */
 	public static void listPerformerShows(Scanner in, ConcertManager mg){
 		String name = in.nextLine();
-		iterators.Iterator<Entertainment> showit = mg.shows(name, iterators.EntertainmentFilter.CONCERT);
+		Iterator<Entertainment> showit = mg.shows(name, ConcertManagerClass.CONCERT);
 		Concert conc = null;
 		Festival fest = null;
 		
@@ -419,7 +418,7 @@ public class Main {
 		
 		System.out.printf(ARTIST_FESTIVAL, name);
 		
-		showit = mg.shows(name, iterators.EntertainmentFilter.FESTIVAL);
+		showit = mg.shows(name, ConcertManagerClass.FESTIVAL);
 		if(showit != null){
 			while(showit.hasNext()){
 				fest = (Festival) showit.next();
@@ -535,17 +534,17 @@ public class Main {
 	 */
 	public static void listShowbyType(Scanner in, ConcertManager mg) {
 		String type = in.nextLine().toUpperCase();
-		iterators.Iterator<Entertainment> it = null;
+		Iterator<Entertainment> it = null;
 		
 		it = mg.iteratorByEntertainmentType(type);
 		
-		if(type.equals(EntertainmentFilter.CONCERT)){
+		if(type.equals(ConcertManagerClass.CONCERT)){
 			System.out.println(CONCERT_TITLE);
 			while(it.hasNext()){
 				ConcertStatus((Concert)it.next());
 			}
 		}
-		else if (type.equals(EntertainmentFilter.FESTIVAL)){
+		else if (type.equals(ConcertManagerClass.FESTIVAL)){
 			System.out.println(FESTIVAL_TITLE);
 			while(it.hasNext()){
 				FestivalStatus((Festival)it.next());
