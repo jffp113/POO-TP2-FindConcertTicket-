@@ -13,7 +13,8 @@ import show.Ticket;
  * @author 50654
  */
 public class ClientClass extends UserClass implements Client{
-
+	public static final String CONCERT = "CONCERT";
+	
 	//Variables
 	private List<Ticket> festivalTickets;
 	private List<Ticket> concertTickets;
@@ -39,7 +40,7 @@ public class ClientClass extends UserClass implements Client{
 	}
 	
 	public Iterator<Ticket> listTickets(String type) {
-		if(type.equals("CONCERT"))
+		if(type.equals(CONCERT))
 			return concertTickets.iterator();
 		else
 			return festivalTickets.iterator();
